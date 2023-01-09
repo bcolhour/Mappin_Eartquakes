@@ -1,1 +1,1 @@
-# Mappin_Eartquakes
+# Mapping_Eartquakes
