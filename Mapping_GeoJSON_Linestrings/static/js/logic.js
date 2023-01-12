@@ -46,35 +46,24 @@ L.control.layers(baseMaps).addTo(map);
 //streets.addTo(map);
 // dark.addTo(map);
 //outdoors.addTo(map);
-//light.addTo(map);
+light.addTo(map);
 
 // Accessing the Toronto airline routes GeoJSON URL.
-let torontoData  = "https://github.com/bcolhour/Mapping_Earthquakes/blob/main/torontoRoutes.json";
+let torontoData  = "https://raw.githubusercontent.com/bcolhour/Mapping_Earthquakes/main/torontoRoutes.json";
 
-// Grabbing our GeoJSON data.
+//Grabbing our GeoJSON data.
 d3.json(torontoData).then(function(data) {
   console.log(data);
 // Creating a GeoJSON layer with the retrieved data.
-L.geoJSON(data, {
-  style: myStyle,
-  onEachFeature: function(feature, layer){
-    layer.bindPopup("<h3> Airline: " + feature.properties.airline + "</h3><hr><h3> Destination: " 
-    + feature.properties.dst + "</h3>");
-  }
-})
-.addTo(map);
+L.geoJSON(data).addTo(map);
 });
 
-
-
-
-
-// L.geoJson(sanFranAirport, {
-//   //We turn each feature into a marker on our map
-//   pointToLayer: function(feature, latlng) {
-//     console.log(feature);
-//     return L.marker(latlng)
-//    .bindPopup("<h2> Airport Code: " + feature.properties.faa 
-//       + "</h2>" + "<h4> Airport Name: " + feature.properties.name + "</h4>");
+//{
+//   style: myStyle,
+//   onEachFeature: function(feature, layer){
+//     layer.bindPopup("<h3> Airline: " + feature.properties.airline + "</h3><hr><h3> Destination: " 
+//     + feature.properties.dst + "</h3>");
 //   }
-//   }).addTo(map);
+// })
+// .addTo(map);
+// });
